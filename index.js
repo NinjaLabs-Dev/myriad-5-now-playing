@@ -6,7 +6,10 @@ const env = process.env;
 const stationNowPlaying = env.STATION_INFO_DIR;
 const output = env.NOWPLAYING_OUTPUT || './NowPlaying.txt';
 
+utils.checkForUpdate();
+
 if(!stationNowPlaying || !output) return console.log("[ ERRR ] We're missing a value! Check your .env file");
+
 
 console.log("[ INFO ] Application is up and running");
 
