@@ -24,6 +24,4 @@ checkForUpdate = () => {
     })
 }
 
-checkForUpdate()
-
 exports.checkForUpdate = checkForUpdate;
