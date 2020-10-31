@@ -17,7 +17,7 @@ _This should be done in a command terminal_
 `NOWPLAYING_OUTPUT` this contains the location and file of output.
 
 ### Found a bug?
-Create an [Issue](/issues) and let us fix it!
+Create an [Issue](https://github.com/NinjaLabs-Dev/myriad-5-now-playing/issues) and let us fix it!
 
 ### Think it's good?
 Why not leave a star!
