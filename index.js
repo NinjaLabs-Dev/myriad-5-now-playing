@@ -23,21 +23,36 @@ fs.watchFile(stationNowPlaying, (curr) => {
     let data = parser.xml2json(xml, {compact: true, spaces: 4});
 
     let item = JSON.parse(data);
-    item = item.nowPlaying.logItem[0]
+    item = item.nowPlaying.logItem[0];
 
-    if(item.itemType._text !== 'song') return console.log('[ INFO ] Skipping, not valid song');
+    if(!item._attributes) return console.log('[ ERRR ] Couldn\'t detect type')
 
-    let title = item.title.title;
-    let artists = item.artists.artist.name;
+    if(item._attributes.type !== 'song') return console.log('[ INFO ] Skipping, not valid song');
 
-    if((title === null) && (artists === null)) return console.log('[ INFO ] Skipping, Song or Artist was empty');
+    let artists, title;
 
-    title = title._text;
-    artists = artists._text;
+    console.log()
 
-    console.log(`[ INFO ] Setting playing to: ${title} - ${artists}`)
+    if(Array.isArray(item.artists.artist)) {
+        let a = [];
+        item.artists.artist.forEach(artist => {
+            a.push(artist.name._text)
+        });
+        
+        artists = a.join(', ');
+    } else {
+        artists = item.artists.artist.name._text;
+    }
+    
+    title = item.title.title._text;
+	
+	if((title === null) || (artists === null)){
+		console.log('[ INFO ] Skipping, Song or Artist was empty')
+	};
 
-    fs.writeFile(output, `${title} - ${artists}`, (err) => {
+    console.log(`[ INFO ] Setting playing to: ${artists} - ${title}`)
+
+    fs.writeFile(output, `${artists} - ${title}`, (err) => {
         if (err) console.log(`[ ERRR ] ` + err);
     });
 });

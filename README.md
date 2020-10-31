@@ -21,3 +21,9 @@ Create an [Issue](/issues) and let us fix it!
 
 ### Think it's good?
 Why not leave a star!
+
+### Want to go the extra mile and support me?
+<br>
+<p align="left">
+  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=R22KA59DG36GE"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"></a>
+</p>
